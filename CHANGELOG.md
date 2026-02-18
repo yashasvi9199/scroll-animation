@@ -9,7 +9,7 @@
 - feature: configured GitHub Pages deployment with base path and automated CI/CD workflow
 - feature: installed gh-pages and added deployment scripts for manual overrides
 - feature: created immersive README.md with technical documentation and live demo links
-- fix: resolved frame assets path issue using conditional base path in Vite config for dev/prod parity
+- fix: resolved frame assets path issue on GitHub Pages by dynamically resolving paths using import.meta.env.BASE_URL
 
 ## 1.1.1
 

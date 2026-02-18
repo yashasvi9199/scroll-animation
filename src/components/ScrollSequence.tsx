@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { useCallback } from 'react';
 import { useScrollProgress } from '../hooks/useScrollProgress';
 import { useFramePreloader } from '../hooks/useFramePreloader';
@@ -12,7 +13,9 @@ export function ScrollSequence() {
   const { progress, ref } = useScrollProgress(0);
   
   const getFramePath = useCallback((index: number) => {
-    return `/frames/frame_${index + 1}.png`;
+    const baseUrl = import.meta.env.BASE_URL;
+    const cleanBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+    return `${cleanBaseUrl}frames/frame_${index + 1}.png`;
   }, []);
 
   const { images, loaded, loadProgress, error } = useFramePreloader(TOTAL_FRAMES, getFramePath);
